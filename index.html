@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>م. محمد حسني — مؤسس ومدير Reach</title>
+<meta name="description" content="محمد حسني، مؤسس ومدير Reach للتسويق الرقمي و Reach العقارية. أكثر من 500 مليون جنيه إنفاق إعلاني في 6 أسواق.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lalezar&family=Onest:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" fetchpriority="high" href="assets/hero-real.png">
+
+<style>
+/* ── Reset ─────────────────────────────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img,video{display:block;max-width:100%}
+ul,ol{list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;appearance:none;-webkit-appearance:none}
+h1,h2,h3{font-weight:400}
+
+/* ── Tokens ────────────────────────────────────────────────────────────── */
+:root{
+  --background:#08080a; --foreground:#f3f1ea; --surface:#111114; --surface-2:#17171b;
+  --muted:#807f78; --line:rgba(243,241,234,0.1); --line-strong:rgba(243,241,234,0.22);
+  --accent:#ff3b1d; --accent-2:#ff6a3d;
+  --gutter:2.5rem; --section:9rem;
+  --font-display:"Anton",sans-serif; --font-sans:"Onest",sans-serif;
+  --expo:cubic-bezier(0.16,1,0.3,1); --quart:cubic-bezier(0.165,0.84,0.44,1);
+  --tight:-0.025em;
+}
+
+/* ── Adaptive rem grid ─────────────────────────────────────────────────── */
+html{font-size:16px;background:#08080a}
+@media (max-width:1920px){html{font-size:0.833333vw}}
+@media (max-width:1440px){html{font-size:1.111111vw}}
+@media (max-width:1024px){html{font-size:1.5625vw}}
+@media (max-width:640px){html{font-size:4.444444vw} :root{--gutter:16px}}
+
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+html.locked{overflow:hidden}
+
+body{background:#08080a;color:#f3f1ea;font-family:var(--font-sans);font-size:1.0625rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+::selection{background:#ff3b1d;color:#08080a}
+main{position:relative;width:100%;overflow-x:hidden}
+
+/* ── Type helpers ──────────────────────────────────────────────────────── */
+.display{font-family:var(--font-display);text-transform:uppercase;letter-spacing:var(--tight)}
+.t-h1{font-size:5rem;line-height:.95}
+.t-h2{font-size:3.25rem;line-height:1}
+.t-h3{font-size:1.75rem;line-height:1.15}
+.t-lead{font-size:1.375rem;line-height:1.45}
+.t-body{font-size:1.0625rem;line-height:1.6}
+.t-eyebrow{font-size:.8125rem;line-height:1.2}
+.muted{color:var(--muted)}
+.label{font-size:.8125rem;line-height:1.2;text-transform:uppercase;letter-spacing:.22em;color:var(--muted)}
+.label-18{letter-spacing:.18em}
+
+.eyebrow{display:flex;align-items:center;gap:.75rem;font-size:.8125rem;line-height:1.2;font-weight:500;
+  text-transform:uppercase;letter-spacing:.22em;color:var(--muted)}
+.eyebrow::before{content:"";width:.5rem;height:.5rem;border-radius:9999px;background:var(--accent);flex:none}
+
+.section{padding:var(--section) var(--gutter)}
+.head-row{display:flex;flex-direction:column;gap:1rem}
+@media (min-width:640px){.head-row{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+
+/* ── Reveal primitives ─────────────────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(var(--y,24px)) scale(var(--s,1));
+  transition:opacity var(--d,560ms) var(--expo) var(--dl,0ms),transform var(--d,560ms) var(--expo) var(--dl,0ms)}
+.rv.in{opacity:1;transform:none}
+
+/* line-by-line: .ln clips, .ln-in slides */
+.ln{display:block;overflow:hidden;padding-block:.16em;margin-block:-.16em}
+.ln-in{display:block;opacity:0;transform:translateY(110%);will-change:transform;
+  transition:transform var(--d,900ms) var(--expo) var(--dl,0ms),opacity var(--d,900ms) var(--expo) var(--dl,0ms)}
+.in .ln-in,.ln.in .ln-in{opacity:1;transform:none}
+.lines:not(.split){visibility:hidden}
+
+/* ── Preloader ─────────────────────────────────────────────────────────── */
+#preloader{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:flex-start;
+  justify-content:flex-end;gap:.75rem;padding:var(--gutter);
+  transition:transform 650ms cubic-bezier(0.22,1,0.36,1) 200ms}
+#preloader::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--background)}
+#preloader p{transition:opacity 300ms linear}
+#preloader.done{transform:translateY(-100%);pointer-events:none}
+#preloader.done p{opacity:0}
+.pre-name{font-family:var(--font-display);font-size:1.75rem;text-transform:uppercase;line-height:1;letter-spacing:var(--tight)}
+.pre-count{flex:none;font-family:var(--font-display);font-size:7.5rem;line-height:1;font-variant-numeric:tabular-nums}
+.pre-count .box{position:relative;display:inline-block}
+.pre-count .ghost{visibility:hidden}
+.pre-count .num{position:absolute;inset:0;text-align:right}
+.pre-count .pct{color:var(--accent)}
+@media (min-width:640px){#preloader{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:1rem}}
+
+/* ── Nav ───────────────────────────────────────────────────────────────── */
+.site-header{position:fixed;inset-inline:0;top:0;z-index:50;pointer-events:none}
+.site-header nav{position:relative;z-index:2;pointer-events:auto;display:flex;align-items:center;
+  justify-content:space-between;padding:1.5rem var(--gutter)}
+.logo{display:flex;align-items:center;gap:.75rem}
+.logo .mono{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:9999px;
+  border:1px solid var(--line-strong);font-weight:600;letter-spacing:-.01em;font-size:1rem;line-height:1}
+.logo .name{display:none;font-size:.8125rem;line-height:1.2;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--muted)}
+@media (min-width:640px){.logo .name{display:block}}
+.nav-links{display:none;gap:2.5rem}
+.nav-links a{position:relative;font-size:.8125rem;line-height:1.2;font-weight:500;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--muted);transition:color 300ms ease-out}
+.nav-links a::after{content:"";position:absolute;bottom:-.25rem;left:0;height:1px;width:0;background:var(--accent);
+  transition:width 300ms ease-out}
+.nav-links a:hover{color:var(--foreground)}
+.nav-links a:hover::after{width:100%}
+.burger{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.375rem;width:2.5rem;height:2.5rem}
+.burger span{display:block;height:.125rem;width:1.5rem;background:var(--foreground);
+  transition:transform 380ms var(--expo),opacity 200ms ease-out}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(.5rem) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-.5rem) rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:1;background:var(--background);display:flex;flex-direction:column;
+  justify-content:center;padding-inline:var(--gutter);opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity 450ms ease-out,visibility 0s linear 450ms}
+.menu.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity 450ms ease-out,visibility 0s}
+.menu ul{display:flex;flex-direction:column;gap:1.5rem}
+.menu a{display:block;font-family:var(--font-display);font-size:3.25rem;text-transform:uppercase;line-height:1;
+  letter-spacing:var(--tight);opacity:0;transform:translateY(48px);
+  transition:opacity 200ms ease-out,transform 0s linear 200ms}
+.menu.open a{opacity:1;transform:none;
+  transition:opacity 420ms ease-out calc(120ms + var(--i)*70ms),transform 420ms var(--expo) calc(120ms + var(--i)*70ms)}
+@media (min-width:768px){.nav-links{display:flex}.burger,.menu{display:none}}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+#top{position:relative;display:flex;flex-direction:column;min-height:100vh;min-height:100svh;overflow:hidden}
+.hero-top{position:relative;z-index:30;display:flex;flex-direction:column;gap:2rem;padding:7rem var(--gutter) 0}
+.hero-roles{font-family:var(--font-display);text-transform:uppercase;line-height:1.05;letter-spacing:var(--tight);
+  color:var(--foreground);font-size:1.75rem}
+.hero-roles .ln-in{--d:760ms}
+.hero-desc{max-width:26rem;font-size:1.0625rem;line-height:1.6;color:var(--muted);--y:16px;--d:520ms}
+.hero-portrait{position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:20;height:86vh;width:80vw;pointer-events:none}
+.hero-portrait .liquid{width:100%;height:100%;pointer-events:auto}
+.hero-fade{position:absolute;inset-inline:0;bottom:0;z-index:20;height:26vh;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,#08080a)}
+.hero-name{position:absolute;inset-inline:0;bottom:0;z-index:10;transform:translateY(6%);display:flex;flex-direction:column;
+  align-items:center;font-family:var(--font-display);text-transform:uppercase;font-size:13rem;line-height:.78;
+  letter-spacing:-.01em;color:var(--accent)}
+.hero-name .nl{display:block;white-space:nowrap;overflow:hidden;padding-block:.14em;margin-block:-.14em}
+.hero-name .ch{display:inline-block;opacity:0;transform:translateY(100%);will-change:transform;
+  transition:transform 900ms var(--expo) var(--dl),opacity 900ms var(--expo) var(--dl)}
+.hero-name.in .ch{opacity:1;transform:none}
+.scroll-cue{position:absolute;bottom:2rem;left:var(--gutter);z-index:30;display:flex;align-items:center;gap:.75rem;
+  font-size:.8125rem;line-height:1.2;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);--y:0px;--d:600ms}
+.scroll-cue::before{content:"";display:inline-block;height:1px;width:2.5rem;background:var(--accent)}
+@media (min-width:640px){
+  .hero-top{flex-direction:row;align-items:flex-start;justify-content:space-between;padding-top:8rem}
+  .hero-roles{font-size:3.25rem}
+  .hero-desc{text-align:right}
+  .hero-portrait{width:48vw}
+  .hero-name{font-size:28rem}
+}
+@media (min-width:1024px){.hero-portrait{width:36vw}}
+
+/* ── LiquidImage ───────────────────────────────────────────────────────── */
+.liquid{position:relative;overflow:hidden;background:var(--surface)}
+.liquid.bare{background:none}
+.liquid>svg{position:absolute;width:0;height:0;pointer-events:none}
+.liquid .ph{position:absolute;inset:0;background:radial-gradient(130% 130% at 30% 15%,var(--surface-2),var(--background))}
+.liquid .media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.liquid .veil{position:absolute;inset:0;pointer-events:none;background:var(--background);mix-blend-mode:color;opacity:.88;
+  transition:opacity 380ms ease-out}
+.liquid .glow{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 380ms ease-out;
+  background:linear-gradient(120deg,transparent 30%,color-mix(in srgb,var(--accent) 35%,transparent) 50%,transparent 70%)}
+.liquid .vig{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 120% at 50% 120%,color-mix(in srgb,#08080a 70%,transparent),transparent 60%)}
+.liquid.active .veil{opacity:0}
+.liquid.active .glow{opacity:1}
+.liquid figcaption{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:1.5rem;
+  text-align:center;pointer-events:none;font-family:var(--font-display);font-size:1.75rem;text-transform:uppercase;
+  line-height:1.25;letter-spacing:var(--tight);color:var(--line-strong)}
+.liquid.errored figcaption{display:flex}
+.liquid.errored .media{opacity:0}
+
+/* ── Marquee ───────────────────────────────────────────────────────────── */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:2rem}
+.marquee-track{display:flex;width:max-content;flex-wrap:nowrap;animation:marquee 22s linear infinite;will-change:transform}
+.marquee-track>span{display:flex;align-items:center}
+.marquee-track b{font-family:var(--font-display);font-weight:400;font-size:3.25rem;line-height:1;text-transform:uppercase;
+  letter-spacing:var(--tight);white-space:nowrap}
+.marquee-track i{display:inline-block;flex:none;margin-inline:2rem;width:.625rem;height:.625rem;border-radius:9999px;background:var(--accent)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── Story ─────────────────────────────────────────────────────────────── */
+.story-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+.story-h{margin-top:1.5rem;max-width:16ch;line-height:.95;font-size:3.25rem}
+.story-p{margin-top:2rem;max-width:46ch;font-size:1.375rem;line-height:1.45;color:var(--muted);--y:24px;--d:520ms}
+.principles li{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;border-top:1px solid var(--line);
+  padding:2rem 0;--y:40px;--d:560ms;--dl:calc(var(--i)*90ms)}
+.principles li:last-child{border-bottom:1px solid var(--line)}
+.principles .idx{font-size:1.75rem;line-height:1.15;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
+.principles h3{font-family:var(--font-sans);font-size:1.75rem;line-height:1.15;font-weight:600;letter-spacing:var(--tight)}
+.principles p{margin-top:.75rem;max-width:44ch;font-size:1.0625rem;line-height:1.6;color:var(--muted)}
+@media (min-width:640px){.story-h{font-size:5rem}}
+@media (min-width:1024px){
+  .story-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gutter)}
+  .story-grid>*{grid-column:span 6}
+  .story-right{padding-top:.5rem}
+}
+
+/* ── Ventures ──────────────────────────────────────────────────────────── */
+.ventures-h{margin-top:1.5rem;max-width:14ch;line-height:.95;font-size:3.25rem}
+.venture-list{margin-top:4rem;display:grid;grid-template-columns:1fr;column-gap:var(--gutter);row-gap:4rem}
+.venture-list>li{--y:60px;--d:620ms}
+.venture .liquid{aspect-ratio:16/11;width:100%;border-radius:.125rem}
+.venture-row{margin-top:1.5rem;border-top:1px solid var(--line);padding-top:1.25rem;display:flex;align-items:flex-start;
+  justify-content:space-between;gap:1.5rem}
+.venture h3{font-family:var(--font-sans);font-size:1.75rem;line-height:1.15;font-weight:600;letter-spacing:var(--tight);
+  transition:color 450ms ease-out}
+.venture:hover h3{color:var(--accent)}
+.venture-row p.blurb{margin-top:.5rem;max-width:42ch;font-size:1.0625rem;line-height:1.6;color:var(--muted)}
+.venture-meta{flex:none;text-align:right}
+.venture-meta .outcome{margin-top:.5rem;font-weight:500;color:var(--accent)}
+.venture .cat{margin-top:.75rem}
+@media (min-width:640px){.ventures-h{font-size:5rem}}
+@media (min-width:768px){
+  .venture-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .venture-list>li:nth-child(even){margin-top:6rem;--dl:120ms}
+}
+
+/* ── Impact ────────────────────────────────────────────────────────────── */
+.stats{margin-top:4rem;display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+.stats>div{display:flex;flex-direction:column;gap:1rem;border-bottom:1px solid var(--line);padding:2.5rem 0;
+  --y:40px;--d:560ms;--dl:calc(var(--i)*110ms)}
+.stats dd{font-family:var(--font-display);font-size:7.5rem;line-height:1;letter-spacing:var(--tight);transition:color 340ms ease-out}
+.stats>div:hover dd{color:var(--accent)}
+.stats dt{max-width:20ch;font-size:1.0625rem;line-height:1.6;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+@media (min-width:640px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats>div:nth-child(2n){border-left:1px solid var(--line);padding-left:2rem}
+}
+@media (min-width:1024px){
+  .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stats>div{padding-block:3rem}
+  .stats>div:not(:nth-child(4n+1)){border-left:1px solid var(--line);padding-left:2rem}
+}
+
+/* ── Voices ────────────────────────────────────────────────────────────── */
+.voices-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;gap:3rem}
+.voice-btn{display:flex;width:100%;align-items:baseline;gap:1.25rem;border-top:1px solid var(--line);padding:1.75rem 0;text-align:left}
+.voice-list li:last-child .voice-btn{border-bottom:1px solid var(--line)}
+.voice-btn .idx{font-size:.8125rem;line-height:1.2;font-variant-numeric:tabular-nums;letter-spacing:.18em;color:var(--muted)}
+.voice-btn .who{flex:1}
+.voice-btn .nm{display:block;font-size:1.75rem;line-height:1.15;font-weight:600;letter-spacing:var(--tight);color:var(--muted)}
+.voice-btn .rl{display:block;margin-top:.25rem;font-size:.8125rem;line-height:1.2;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.voice-btn .rule{margin-top:.5rem;height:1px;width:0;background:var(--accent)}
+.voice-btn[aria-pressed="true"] .idx{color:var(--accent)}
+.voice-btn[aria-pressed="true"] .nm{color:var(--foreground)}
+.voice-btn[aria-pressed="true"] .rule{width:2.5rem}
+.voice-btn:focus-visible{outline:1px solid var(--line-strong);outline-offset:.25rem}
+.voice-feature{display:grid;grid-template-columns:1fr;gap:2rem}
+.voice-feature blockquote{order:2}
+.voice-quote{max-width:30ch;font-size:1.75rem;font-weight:500;line-height:1.375;letter-spacing:-.01em;color:var(--foreground)}
+.voice-quote .w{display:inline-block;opacity:0;transform:translateY(18px);
+  animation:word-in 520ms var(--quart) var(--dl) forwards}
+@keyframes word-in{to{opacity:1;transform:none}}
+.voice-feature footer{margin-top:2rem}
+.voice-portrait{order:1;width:100%;--y:0px;--s:1.06;--d:640ms}
+.voice-portrait .liquid{aspect-ratio:4/5;width:100%;border-radius:.125rem}
+@media (min-width:640px){
+  .voice-feature{grid-template-columns:1fr auto;align-items:flex-start}
+  .voice-feature blockquote{order:1}
+  .voice-portrait{order:2;width:16rem}
+}
+@media (min-width:1024px){
+  .voices-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gutter)}
+  .voice-list{grid-column:span 5}
+  .voice-panel{grid-column:span 7}
+}
+
+/* ── Contact / footer ──────────────────────────────────────────────────── */
+#contact{padding:var(--section) var(--gutter) 0}
+.contact-h{margin-top:1.5rem;max-width:18ch;line-height:.95;font-size:5rem}
+.contact-p{margin-top:2rem;max-width:44ch;font-size:1.375rem;line-height:1.45;color:var(--muted);--y:24px;--d:520ms}
+.email-wrap{margin-top:3rem}
+.email{display:inline-flex;align-items:baseline;gap:.75rem;font-size:1.75rem;line-height:1.15;font-weight:600;
+  letter-spacing:var(--tight);word-break:break-all;transition:transform 340ms var(--expo),color 340ms ease-out}
+.email:hover{transform:translateX(14px);color:var(--accent)}
+.email .arrow{color:var(--accent)}
+.footer-bar{margin-top:var(--section);border-top:1px solid var(--line);padding:3rem 0;display:grid;grid-template-columns:1fr;gap:2.5rem}
+.signature{font-size:3.25rem;line-height:1}
+.footer-bar .built{margin-top:1rem}
+.social li+li{margin-top:.5rem}
+.social a{display:inline-flex;align-items:center;font-size:1.0625rem;line-height:1.6;color:var(--muted);transition:color 300ms ease-out}
+.social a::before{content:"";height:1px;width:0;background:var(--accent);transition:width 300ms ease-out,margin 300ms ease-out}
+.social a:hover{color:var(--foreground)}
+.social a:hover::before{width:1.5rem;margin-right:.75rem}
+@media (min-width:640px){
+  .contact-h{font-size:7.5rem;line-height:.9}
+  .email{gap:1rem;font-size:5rem;line-height:.95}
+}
+@media (min-width:1024px){
+  .footer-bar{grid-template-columns:repeat(12,minmax(0,1fr))}
+  .footer-bar>:nth-child(1){grid-column:span 6}
+  .footer-bar>:nth-child(2){grid-column:span 3}
+  .footer-bar>:nth-child(3){grid-column:span 3;text-align:right}
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion:reduce){
+  #preloader{display:none}
+  .marquee-track{animation:none}
+  .rv,.ln-in,.hero-name .ch,.voice-quote .w,.menu a{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+  .lines{visibility:visible!important}
+  *{transition-duration:0s!important}
+}
+
+/* ── Arabic / RTL overrides ────────────────────────────────────────────── */
+:root{--font-display:"Anton","Lalezar",sans-serif;--font-sans:"Onest","IBM Plex Sans Arabic",sans-serif;--tight:0}
+*{letter-spacing:0!important}
+.eyebrow,.label,.nav-links a,.logo .name,.scroll-cue,.voice-btn .rl,.voice-btn .idx{font-size:.95rem}
+.display,.hero-roles,.menu a,.marquee-track b,.pre-name{line-height:1.25!important}
+.ln{padding-block:.32em;margin-block:-.32em}
+.ln+.ln{margin-top:-.64em}
+.hero-desc{text-align:start}
+.scroll-cue{left:auto;right:var(--gutter)}
+.nav-links a::after{left:auto;right:0}
+.hero-name{font-size:12.5rem;line-height:.8;transform:translateY(-14%)}
+.hero-name .nl{padding-block:.4em;margin-block:-.4em}
+.hero-name .nw{display:block;opacity:0;transform:translateY(100%);will-change:transform;
+  transition:transform 1100ms var(--expo) var(--dl),opacity 900ms var(--expo) var(--dl)}
+.hero-name.in .nw{opacity:1;transform:none}
+.marquee-track{animation-name:marquee-rtl}
+@keyframes marquee-rtl{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.venture a{display:block}
+.venture-meta{text-align:left}
+.stats dd{text-align:right}
+.stats>div{border-left:0!important;padding-left:0!important}
+.voice-btn{text-align:right;padding:1.25rem 0}
+.voice-quote{max-width:32ch;line-height:1.6}
+.email:hover{transform:translateX(-14px)}
+.wa-note{margin-top:1rem}
+.social a:hover::before{margin-right:0;margin-left:.75rem}
+@media (max-width:639px){
+  .hero-top{gap:1rem;padding-top:5.5rem}
+  .hero-desc{font-size:.95rem;line-height:1.5;max-width:20rem}
+  .hero-portrait{height:54vh;width:74vw}
+  .hero-name{font-size:15rem;transform:translateY(-22%)}
+}
+.cert-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;gap:3rem var(--gutter)}
+.cert-grid>li{--y:40px;--d:600ms;--dl:calc(var(--i)*90ms)}
+.cert{display:block}
+.cert-img{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:.125rem;background:var(--surface);border:1px solid var(--line)}
+.cert-img img{width:100%;height:100%;object-fit:contain;filter:saturate(.75) brightness(.86);transition:filter 380ms ease-out,transform 620ms var(--expo)}
+.cert:hover .cert-img img{filter:none;transform:scale(1.03)}
+.cert-row{margin-top:1rem;display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding-top:1rem}
+.cert-t{font-size:1.25rem;line-height:1.35;font-weight:600;transition:color 340ms ease-out}
+.cert:hover .cert-t{color:var(--accent)}
+.cert-org{display:block;margin-top:.4rem}
+.cert-row .label{flex:none}
+@media (min-width:640px){.cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.cert-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.hero-portrait .liquid{filter:contrast(1.08) saturate(.78) brightness(.9)}
+@media (min-width:640px){
+  .hero-portrait{height:76vh}
+  .hero-desc{text-align:end}
+  .hero-name{font-size:25rem}
+  .stats>div:nth-child(2n){border-right:1px solid var(--line);padding-right:2rem}
+}
+@media (min-width:1024px){
+  .stats>div:not(:nth-child(4n+1)){border-right:1px solid var(--line);padding-right:2rem}
+  .footer-bar>:nth-child(3){text-align:left}
+}
+@media (prefers-reduced-motion:reduce){.hero-name .nw{opacity:1!important;transform:none!important;transition:none!important}}
+</style>
+
+<script type="importmap">
+{ "imports": { "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.19/dist/lenis.mjs" } }
+</script>
+</head>
+
+<body>
+
+<!-- ═══ Preloader ═══ -->
+<div id="preloader">
+  <p class="pre-name">م. محمد حسني</p>
+  <p class="pre-count" dir="ltr"><span class="box"><span class="ghost">100</span><span class="num" id="pre-num">0</span></span><span class="pct">%</span></p>
+</div>
+
+<!-- ═══ Nav ═══ -->
+<header class="site-header">
+  <nav aria-label="التنقل الرئيسي">
+    <a class="logo" href="#top" aria-label="محمد حسني — الرئيسية">
+      <span class="mono">MH</span>
+      <span class="name">م. محمد حسني</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#story">القصة</a></li>
+      <li><a href="#certificates">الشهادات</a></li>
+      <li><a href="#ventures">الشركات</a></li>
+      <li><a href="#impact">الأرقام</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#realestate">العقارات</a></li>
+      <li><a href="#contact">تواصل</a></li>
+    </ul>
+    <button class="burger" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="menu" id="menu" aria-hidden="true">
+    <ul>
+      <li><a href="#story" style="--i:0">القصة</a></li>
+      <li><a href="#certificates" style="--i:1">الشهادات</a></li>
+      <li><a href="#ventures" style="--i:1">الشركات</a></li>
+      <li><a href="#impact" style="--i:2">الأرقام</a></li>
+      <li><a href="#services" style="--i:3">الخدمات</a></li>
+      <li><a href="#realestate" style="--i:4">العقارات</a></li>
+      <li><a href="#contact" style="--i:5">تواصل</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══ Hero ═══ -->
+  <section id="top">
+    <div class="hero-top">
+      <h2 class="hero-roles" id="hero-roles">
+        <span class="ln"><span class="ln-in" style="--dl:0ms">مهندس</span></span>
+        <span class="ln"><span class="ln-in" style="--dl:80ms">مؤسس</span></span>
+        <span class="ln"><span class="ln-in" style="--dl:160ms">مدير تنفيذي</span></span>
+        <span class="ln"><span class="ln-in" style="--dl:240ms">مسوّق</span></span>
+      </h2>
+      <p class="hero-desc rv" id="hero-desc">مؤسس ومدير Reach للتسويق الرقمي منذ 10 سنوات، و Reach العقارية منذ 5 سنوات. أدرت إعلانات بأكثر من 500 مليون جنيه في 6 أسواق، وحققنا للشركات مبيعات تخطّت المليار.</p>
+    </div>
+
+    <div class="hero-portrait">
+      <figure class="liquid bare" role="img" aria-label="صورة محمد حسني" data-strength="30">
+        <img class="media" alt="" aria-hidden="true" fetchpriority="high" decoding="sync"
+             style="object-position:center bottom" src="assets/hero-real.png">
+      </figure>
+    </div>
+
+    <div class="hero-fade" aria-hidden="true"></div>
+
+    <h1 class="hero-name" id="hero-name" aria-label="المهندس محمد حسني">
+      <span class="nl" aria-hidden="true"><span class="nw" style="--dl:0ms">محمد</span></span>
+      <span class="nl" aria-hidden="true"><span class="nw" style="--dl:240ms">حسني</span></span>
+    </h1>
+
+    <p class="scroll-cue rv" id="scroll-cue">مرّر للأسفل</p>
+  </section>
+
+  <!-- ═══ Marquee ═══ -->
+  <section class="marquee" aria-label="الخدمات">
+    <div class="marquee-track" id="marquee-track">
+      <span><b>تصميم مواقع</b><i aria-hidden="true"></i></span>
+      <span><b>خطط تسويقية</b><i aria-hidden="true"></i></span>
+      <span><b>إدارة إعلانات</b><i aria-hidden="true"></i></span>
+      <span><b>صناعة محتوى</b><i aria-hidden="true"></i></span>
+      <span><b>ميديا برودكشن</b><i aria-hidden="true"></i></span>
+      <span><b>خدمات AI</b><i aria-hidden="true"></i></span>
+      <span><b>إيكوميرس</b><i aria-hidden="true"></i></span>
+      <span><b>تسويق عقاري</b><i aria-hidden="true"></i></span>
+      <span><b>B2B</b><i aria-hidden="true"></i></span>
+    </div>
+  </section>
+
+  <!-- ═══ Story ═══ -->
+  <section id="story" class="section">
+    <div class="story-grid">
+      <div>
+        <p class="eyebrow">القصة</p>
+        <h2 class="display story-h lines" style="--d:900ms">عشر سنوات من التسويق بالأرقام.</h2>
+        <p class="story-p rv">أنا المهندس محمد حسني، صاحب ومدير شركتين: Reach للتسويق الرقمي، و Reach العقارية. بدأت Reach قبل عشر سنوات لتقدّم خدمات التسويق الرقمي كاملة، وبعدها بخمس سنوات أسست Reach العقارية لتسويق الوحدات داخل مصر. عملت على أسواق في مصر وقطر والسعودية والإمارات وماليزيا وبريطانيا، وأدرت إنفاقًا إعلانيًا تجاوز 500 مليون جنيه، وحققنا للشركات مبيعات تخطّت المليار على مدار السنوات.</p>
+      </div>
+      <div class="story-right">
+        <ul class="principles">
+          <li class="rv" style="--i:0">
+            <span class="idx">01</span>
+            <div><h3>الأرقام قبل الآراء</h3><p>أكثر من 500 مليون جنيه إنفاق إعلاني منذ تأسيس الشركة. كل قرار في الحملة يُبنى على نتيجة يمكن قياسها.</p></div>
+          </li>
+          <li class="rv" style="--i:1">
+            <span class="idx">02</span>
+            <div><h3>خدمة كاملة تحت سقف واحد</h3><p>من الخطة التسويقية إلى الموقع والمحتوى والتصوير وإدارة الإعلانات، فريق واحد مسؤول عن النتيجة كلها.</p></div>
+          </li>
+          <li class="rv" style="--i:2">
+            <span class="idx">03</span>
+            <div><h3>ستة أسواق، منهج واحد</h3><p>مصر، قطر، السعودية، الإمارات، ماليزيا وبريطانيا. لكل سوق جمهوره، والطريقة واحدة: افهم العميل ثم اصرف.</p></div>
+          </li>
+          <li class="rv" style="--i:3">
+            <span class="idx">04</span>
+            <div><h3>من الإعلان إلى إتمام الصفقة</h3><p>في العقارات لا نتوقف عند العميل المحتمل. نكمل مع البائع والمشتري حتى إنهاء الإجراءات وتوقيع العقد.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Education ═══ -->
+  <section id="education" class="section">
+    <div class="story-grid">
+      <div>
+        <p class="eyebrow">التعليم والتكريم</p>
+        <h2 class="display story-h lines" style="--d:900ms">مهندس أولًا، ثم مسوّق.</h2>
+        <p class="story-p rv">خلفية هندسية في الحاسبات والمعلومات، وماجستير مهني في إدارة الأعمال من بريطانيا، ومنحة حكومية في الأمن السيبراني، ودبلومات ودورات متخصصة في التسويق والإدارة.</p>
+      </div>
+      <div class="story-right">
+        <ul class="principles">
+          <li class="rv" style="--i:0"><span class="idx">01</span><div><h3>هندسة الحاسبات والمعلومات</h3><p>خريج كلية هندسة الحاسبات والمعلومات.</p></div></li>
+          <li class="rv" style="--i:1"><span class="idx">02</span><div><h3>ماجستير مهني في إدارة الأعمال MBA</h3><p>Professional MBA من Oxford Academy for Training بالمملكة المتحدة، 2023–2024، بتقدير امتياز مع مرتبة الشرف ومعدل 3.9.</p></div></li>
+          <li class="rv" style="--i:2"><span class="idx">03</span><div><h3>منحة رواد تكنولوجيا المستقبل</h3><p>منحة من وزارة الاتصالات في مجال الأمن السيبراني، برعاية رئيس الجمهورية عبد الفتاح السيسي. تم تكريمي ضمن أول دفعة تخرجت من المبادرة.</p></div></li>
+          <li class="rv" style="--i:3"><span class="idx">04</span><div><h3>الأمن السيبراني — University of Maryland</h3><p>ثلاث شهادات عبر Coursera عام 2017: Cryptography و Software Security و Hardware Security.</p></div></li>
+          <li class="rv" style="--i:4"><span class="idx">05</span><div><h3>دبلومات مهنية</h3><p>من International Compass Academy: التسويق، العلاقات العامة والتسويق، إدارة الموارد البشرية، وإدارة الأعمال (2024–2025).</p></div></li>
+          <li class="rv" style="--i:5"><span class="idx">06</span><div><h3>دورات متخصصة</h3><p>العديد من الدورات في الديجيتال ماركتنج والإيكوميرس و AI Artist.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Certificates ═══ -->
+  <section id="certificates" class="section">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">الشهادات</p>
+        <h2 class="display ventures-h lines" style="--d:900ms">موثّق بالشهادات.</h2>
+      </div>
+      <p class="label">14 / شهادة</p>
+    </div>
+    <ul class="cert-grid">
+      <li class="rv" style="--i:0">
+        <a class="cert" href="assets/certs/oxford-mba.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Professional MBA" loading="lazy" decoding="async" src="assets/certs/oxford-mba.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Professional MBA</span><span class="label label-18">2023–2024</span></span>
+          <span class="label cert-org">Oxford Academy for Training · المملكة المتحدة</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:1">
+        <a class="cert" href="assets/certs/compass-mba.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Professional Master in Business Administration" loading="lazy" decoding="async" src="assets/certs/compass-mba.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Professional Master in Business Administration</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">International Compass Academy</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:2">
+        <a class="cert" href="assets/certs/compass-marketing.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Professional Diploma in Marketing" loading="lazy" decoding="async" src="assets/certs/compass-marketing.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Professional Diploma in Marketing</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">International Compass Academy</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:0">
+        <a class="cert" href="assets/certs/compass-pr.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Professional Diploma in Public Relations and Marketing" loading="lazy" decoding="async" src="assets/certs/compass-pr.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Professional Diploma in Public Relations and Marketing</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">International Compass Academy</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:1">
+        <a class="cert" href="assets/certs/compass-hr.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Professional Diploma in Human Resource Management" loading="lazy" decoding="async" src="assets/certs/compass-hr.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Professional Diploma in Human Resource Management</span><span class="label label-18">2024</span></span>
+          <span class="label cert-org">International Compass Academy</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:2">
+        <a class="cert" href="assets/certs/compass-excellence.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="شهادة تميّز في مجال إدارة الأعمال" loading="lazy" decoding="async" src="assets/certs/compass-excellence.jpg"></span>
+          <span class="cert-row"><span class="cert-t">شهادة تميّز في مجال إدارة الأعمال</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">أكاديمية كامبس الدولية للتدريب</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:0">
+        <a class="cert" href="assets/certs/coursera-crypto.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Cryptography" loading="lazy" decoding="async" src="assets/certs/coursera-crypto.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Cryptography</span><span class="label label-18">2017</span></span>
+          <span class="label cert-org">University of Maryland · Coursera</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:1">
+        <a class="cert" href="assets/certs/coursera-software.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Software Security" loading="lazy" decoding="async" src="assets/certs/coursera-software.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Software Security</span><span class="label label-18">2017</span></span>
+          <span class="label cert-org">University of Maryland · Coursera</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:2">
+        <a class="cert" href="assets/certs/coursera-hardware.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="Hardware Security" loading="lazy" decoding="async" src="assets/certs/coursera-hardware.jpg"></span>
+          <span class="cert-row"><span class="cert-t">Hardware Security</span><span class="label label-18">2017</span></span>
+          <span class="label cert-org">University of Maryland · Coursera</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:0">
+        <a class="cert" href="assets/certs/course-swot.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="دورة تحليل نقاط القوة والضعف (SWOT)" loading="lazy" decoding="async" src="assets/certs/course-swot.jpg"></span>
+          <span class="cert-row"><span class="cert-t">دورة تحليل نقاط القوة والضعف (SWOT)</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">أكاديمية كامبس الدولية للتدريب</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:1">
+        <a class="cert" href="assets/certs/course-pr.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="دورة العلاقات العامة والتسويق" loading="lazy" decoding="async" src="assets/certs/course-pr.jpg"></span>
+          <span class="cert-row"><span class="cert-t">دورة العلاقات العامة والتسويق</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">أكاديمية كامبس الدولية للتدريب</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:2">
+        <a class="cert" href="assets/certs/course-finance.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="دورة إعداد القوائم المالية" loading="lazy" decoding="async" src="assets/certs/course-finance.jpg"></span>
+          <span class="cert-row"><span class="cert-t">دورة إعداد القوائم المالية</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">أكاديمية كامبس الدولية للتدريب</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:0">
+        <a class="cert" href="assets/certs/course-conferences.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="دورة إعداد وتنظيم المؤتمرات الدولية" loading="lazy" decoding="async" src="assets/certs/course-conferences.jpg"></span>
+          <span class="cert-row"><span class="cert-t">دورة إعداد وتنظيم المؤتمرات الدولية</span><span class="label label-18">2025</span></span>
+          <span class="label cert-org">أكاديمية كامبس الدولية للتدريب</span>
+        </a>
+      </li>
+      <li class="rv" style="--i:1">
+        <a class="cert" href="assets/certs/course-careers.jpg" target="_blank" rel="noopener">
+          <span class="cert-img"><img alt="دورة إدارة الحركة الوظيفية" loading="lazy" decoding="async" src="assets/certs/course-careers.jpg"></span>
+          <span class="cert-row"><span class="cert-t">دورة إدارة الحركة الوظيفية</span><span class="label label-18">2024</span></span>
+          <span class="label cert-org">أكاديمية كامبس الدولية للتدريب</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══ Ventures ═══ -->
+  <section id="ventures" class="section">
+    <div class="head-row">
+      <div>
+        <p class="eyebrow">الشركات</p>
+        <h2 class="display ventures-h lines" style="--d:900ms">شركتان. اسم واحد.</h2>
+      </div>
+      <p class="label">02 / شركات</p>
+    </div>
+
+    <ul class="venture-list">
+      <li class="rv">
+        <article class="venture">
+          <a href="https://reachagency.online/" target="_blank" rel="noreferrer noopener" aria-label="موقع Reach">
+          <figure class="liquid" role="img" aria-label="Reach" data-strength="28">
+            <div class="ph"></div>
+            <img class="media" alt="" aria-hidden="true" loading="lazy" decoding="async" src="assets/reach.jpg">
+            <div class="veil" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div>
+            <figcaption>Reach</figcaption>
+            <div class="vig" aria-hidden="true"></div>
+          </figure>
+          </a>
+          <div class="venture-row">
+            <div>
+              <h3>Reach</h3>
+              <p class="blurb">وكالة تسويق رقمي متكاملة: تصميم مواقع، خطط تسويقية، إدارة إعلانات، محتوى، ميديا برودكشن، خدمات AI وإيكوميرس.</p>
+            </div>
+            <div class="venture-meta">
+              <p class="label label-18">منذ 10 سنوات</p>
+              <p class="label label-18 outcome">6 أسواق</p>
+            </div>
+          </div>
+          <p class="label cat">تسويق رقمي</p>
+        </article>
+      </li>
+      <li class="rv">
+        <article class="venture">
+          <a href="https://www.facebook.com/profile.php?id=100085354807980" target="_blank" rel="noreferrer noopener" aria-label="صفحة Reach العقارية">
+          <figure class="liquid" role="img" aria-label="Reach العقارية" data-strength="28">
+            <div class="ph"></div>
+            <img class="media" alt="" aria-hidden="true" loading="lazy" decoding="async" src="assets/realestate.jpg">
+            <div class="veil" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div>
+            <figcaption>Reach العقارية</figcaption>
+            <div class="vig" aria-hidden="true"></div>
+          </figure>
+          </a>
+          <div class="venture-row">
+            <div>
+              <h3>Reach العقارية</h3>
+              <p class="blurb">تسويق عقاري للوحدات داخل مصر: تثمين وتسعير وتصوير وإعلانات، ثم متابعة البائع والمشتري حتى إتمام البيع.</p>
+            </div>
+            <div class="venture-meta">
+              <p class="label label-18">منذ 5 سنوات</p>
+              <p class="label label-18 outcome">عقود حصرية</p>
+            </div>
+          </div>
+          <p class="label cat">تسويق عقاري</p>
+        </article>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══ Impact ═══ -->
+  <section id="impact" class="section">
+    <div class="head-row">
+      <p class="eyebrow">بالأرقام</p>
+      <h2 class="display t-h2 lines" style="--d:800ms">عقد كامل، بالأرقام.</h2>
+    </div>
+    <dl class="stats">
+      <div class="rv" style="--i:0"><dd dir="ltr">+1B</dd><dt>مبيعات تخطّت المليار حققناها للشركات على مدار السنوات</dt></div>
+      <div class="rv" style="--i:1"><dd dir="ltr">+500M</dd><dt>جنيه إنفاق إعلاني منذ تأسيس الشركة</dt></div>
+      <div class="rv" style="--i:2"><dd dir="ltr">10</dd><dt>سنوات على تأسيس Reach</dt></div>
+      <div class="rv" style="--i:3"><dd dir="ltr">6</dd><dt>أسواق: مصر، قطر، السعودية، الإمارات، ماليزيا، بريطانيا</dt></div>
+    </dl>
+  </section>
+
+  <!-- ═══ Services (interactive) ═══ -->
+  <section id="services" class="section">
+    <div class="head-row">
+      <p class="eyebrow">خدمات Reach</p>
+      <h2 class="display t-h2 lines" style="--d:800ms">ماذا نقدّم.</h2>
+    </div>
+
+    <div class="voices-grid">
+      <ul class="voice-list" id="voice-list">
+        <li><button type="button" class="voice-btn" aria-pressed="true"><span class="idx">01</span><span class="who"><span class="nm">تصميم المواقع</span><span class="rl">مواقع ومتاجر</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">02</span><span class="who"><span class="nm">الخطط التسويقية</span><span class="rl">استراتيجية</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">03</span><span class="who"><span class="nm">إدارة الإعلانات</span><span class="rl">حملات مدفوعة</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">04</span><span class="who"><span class="nm">صناعة المحتوى</span><span class="rl">سوشيال ميديا</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">05</span><span class="who"><span class="nm">ميديا برودكشن</span><span class="rl">تصوير وفيديو</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">06</span><span class="who"><span class="nm">خدمات AI</span><span class="rl">ذكاء اصطناعي</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">07</span><span class="who"><span class="nm">الإيكوميرس</span><span class="rl">تجارة إلكترونية</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">08</span><span class="who"><span class="nm">التسويق العقاري</span><span class="rl">مشاريع ووحدات</span></span><span class="rule" aria-hidden="true"></span></button></li>
+        <li><button type="button" class="voice-btn" aria-pressed="false"><span class="idx">09</span><span class="who"><span class="nm">الأنشطة المحلية و B2B</span><span class="rl">تسويق محلي وبين الشركات</span></span><span class="rule" aria-hidden="true"></span></button></li>
+      </ul>
+
+      <div class="voice-panel">
+        <div class="voice-feature">
+          <blockquote>
+            <p class="voice-quote" id="voice-quote">موقع يعرّف الناس بك ويسهّل عليهم الطلب، مصمم ليكون سريعًا وواضحًا وجاهزًا للإعلانات.</p>
+            <footer class="label label-18" id="voice-cite">Reach — تصميم المواقع</footer>
+          </blockquote>
+          <div class="voice-portrait rv">
+            <figure class="liquid" role="img" aria-label="ميديا برودكشن" data-strength="22">
+              <div class="ph"></div>
+              <img class="media" alt="" aria-hidden="true" loading="lazy" decoding="async" src="assets/production.jpg">
+              <div class="veil" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div>
+              <figcaption>Reach</figcaption>
+              <div class="vig" aria-hidden="true"></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Real estate ═══ -->
+  <section id="realestate" class="section">
+    <div class="story-grid">
+      <div>
+        <p class="eyebrow">Reach العقارية</p>
+        <h2 class="display story-h lines" style="--d:900ms">من التثمين إلى توقيع العقد.</h2>
+        <p class="story-p rv">نسوّق الوحدات داخل مصر من أول خطوة إلى آخر خطوة، ونوقّع عقودًا حصرية مع شركات التطوير العقاري لتسويق مشاريعها بنظام العمولة.</p>
+      </div>
+      <div class="story-right">
+        <ul class="principles">
+          <li class="rv" style="--i:0"><span class="idx">01</span><div><h3>التثمين والتسعير</h3><p>نقيّم الوحدة ونحدد لها سعرًا مناسبًا للسوق.</p></div></li>
+          <li class="rv" style="--i:1"><span class="idx">02</span><div><h3>التصوير</h3><p>نصوّر الوحدة بشكل يعرضها كما يجب.</p></div></li>
+          <li class="rv" style="--i:2"><span class="idx">03</span><div><h3>الإعلانات</h3><p>نصرف على إعلانات تصل إلى المشتري المهتم.</p></div></li>
+          <li class="rv" style="--i:3"><span class="idx">04</span><div><h3>التواصل</h3><p>نتواصل مع المشتري والبائع ونتابع حتى الاتفاق.</p></div></li>
+          <li class="rv" style="--i:4"><span class="idx">05</span><div><h3>إنهاء الإجراءات</h3><p>نخلّص إجراءات البيع حتى توقيع العقد.</p></div></li>
+          <li class="rv" style="--i:5"><span class="idx">06</span><div><h3>إعادة الاستثمار والتوجيه</h3><p>توجيه مباشر للسكن أو للاستثمار، وإعادة استثمار العائد.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ Contact / Footer ═══ -->
+<footer id="contact">
+  <p class="eyebrow">تواصل معي</p>
+  <h2 class="display contact-h lines" style="--d:950ms">استشارة تسويقية أو تعاون بين شركتين؟</h2>
+  <p class="contact-p rv">راسلني مباشرة على واتساب للاستشارات التسويقية، أو للتعاون في التسويق بين شركتك وشركتي.</p>
+  <div class="email-wrap">
+    <a class="email" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener" aria-label="واتساب +20 120 731 2268"><span dir="ltr">+20 120 731 2268</span> <span class="arrow" aria-hidden="true">↖</span></a>
+    <p class="label wa-note">واتساب</p>
+  </div>
+
+  <div class="footer-bar">
+    <div>
+      <p class="display signature">م. محمد حسني</p>
+      <p class="label built">Reach · Reach العقارية</p>
+    </div>
+    <nav aria-label="روابط">
+      <ul class="social">
+        <li><a href="https://reachagency.online/" target="_blank" rel="noreferrer noopener">موقع Reach</a></li>
+        <li><a href="https://www.linkedin.com/in/mohamed-hosni-digital-marketer-33a62b10b" target="_blank" rel="noreferrer noopener">لينكدإن</a></li>
+        <li><a href="https://www.instagram.com/mohamed.hosni.h" target="_blank" rel="noreferrer noopener">إنستجرام</a></li>
+        <li><a href="https://www.facebook.com/mohamed.hosni.1420" target="_blank" rel="noreferrer noopener">فيسبوك</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=100085354807980" target="_blank" rel="noreferrer noopener">صفحة Reach العقارية</a></li>
+      </ul>
+    </nav>
+    <p class="label label-18">© 2026 م. محمد حسني. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<script type="module">
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const root = document.documentElement;
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+/* ── Adaptive grid: scale-up above 1920px ─────────────────────────────── */
+const FONT_BASE = 16, BASE_W = 1920, COEF = 0.6666;
+function applyAdaptiveGrid(){
+  const w = window.innerWidth;
+  const reduction = ((BASE_W - w) / BASE_W) * 100 * COEF;
+  const size = FONT_BASE - (FONT_BASE * reduction) / 100;
+  if (size > FONT_BASE) root.style.fontSize = size + "px";
+  else root.style.removeProperty("font-size");
+}
+applyAdaptiveGrid();
+addEventListener("resize", applyAdaptiveGrid);
+
+/* ── Scroll lock + Lenis ──────────────────────────────────────────────── */
+let lenis = null, locked = !RM;
+if (locked) { root.classList.add("locked"); window.scrollTo(0, 0); }
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+function unlock(){ locked = false; root.classList.remove("locked"); lenis?.start(); }
+
+import("lenis").then(({ default: Lenis }) => {
+  lenis = new Lenis({ smoothWheel: true });
+  window.lenis = lenis;
+  if (locked) lenis.stop();
+  const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+}).catch(() => { /* CDN unreachable — native scroll */ });
+
+function scrollToTarget(el){
+  if (lenis) lenis.scrollTo(el);
+  else el.scrollIntoView({ behavior: RM ? "auto" : "smooth" });
+}
+
+/* ── Preloader ────────────────────────────────────────────────────────── */
+const pre = $("#preloader"), preNum = $("#pre-num");
+function finishPreloader(){
+  pre.classList.add("done");
+  pre.setAttribute("aria-hidden", "true");
+  let ended = false;
+  const end = () => { if (ended) return; ended = true; unlock(); pre.style.visibility = "hidden"; };
+  pre.addEventListener("transitionend", (e) => { if (e.target === pre && e.propertyName === "transform") end(); });
+  setTimeout(end, 1000); // safety net (200ms delay + 650ms wipe)
+}
+if (RM) { pre.setAttribute("aria-hidden", "true"); }
+else {
+  const t0 = performance.now();
+  (function tick(now){
+    const p = Math.min((now - t0) / 2000, 1);
+    preNum.textContent = Math.round(p * 100);
+    if (p < 1) requestAnimationFrame(tick); else finishPreloader();
+  })(t0);
+}
+
+/* ── Hero reveal sequence ─────────────────────────────────────────────── */
+const REVEAL_DELAY = RM ? 0 : 2500;
+const heroName = $("#hero-name");
+const at = (ms, fn) => setTimeout(fn, ms);
+at(REVEAL_DELAY,        () => heroName.classList.add("in"));
+at(REVEAL_DELAY + 200,  () => $("#hero-roles").classList.add("in"));
+at(REVEAL_DELAY + 400,  () => $("#hero-desc").classList.add("in"));
+at(REVEAL_DELAY + 900,  () => $("#scroll-cue").classList.add("in"));
+
+/* ── Marquee: duplicate the pass for a seamless loop ──────────────────── */
+const track = $("#marquee-track");
+$$(":scope > span", track).forEach((n) => {
+  const c = n.cloneNode(true);
+  c.setAttribute("aria-hidden", "true");
+  track.appendChild(c);
+});
+
+/* ── Line-by-line heading split ───────────────────────────────────────── */
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+function splitLines(el){
+  const text = el.dataset.text ?? (el.dataset.text = el.textContent.trim());
+  el.setAttribute("aria-label", text);
+  el.innerHTML = text.split(/\s+/).map((w) => `<span style="display:inline-block">${esc(w)}</span>`).join(" ");
+  const lines = [];
+  let top = null;
+  for (const w of el.children) {
+    if (top === null || Math.abs(w.offsetTop - top) > 2) { lines.push([]); top = w.offsetTop; }
+    lines[lines.length - 1].push(w.textContent);
+  }
+  el.innerHTML = lines.map((ws, i) =>
+    `<span class="ln" aria-hidden="true"><span class="ln-in" style="--dl:${i * 90}ms">${esc(ws.join(" "))}</span></span>`
+  ).join("");
+  el.classList.add("split");
+}
+
+/* ── In-view (once, threshold 0) ──────────────────────────────────────── */
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}, { threshold: 0 });
+
+const headings = $$(".lines");
+const fontsReady = Promise.race([document.fonts?.ready ?? Promise.resolve(), new Promise((r) => setTimeout(r, 1800))]);
+fontsReady.then(() => {
+  headings.forEach(splitLines);
+  headings.forEach((h) => io.observe(h));
+  $$(".rv").forEach((el) => { if (!el.closest("#top")) io.observe(el); });
+});
+let lastW = innerWidth, rz;
+addEventListener("resize", () => {
+  if (innerWidth === lastW) return;
+  lastW = innerWidth;
+  clearTimeout(rz);
+  rz = setTimeout(() => headings.forEach(splitLines), 150);
+});
+
+/* ── Nav: smooth anchors + mobile menu ────────────────────────────────── */
+const burger = $(".burger"), menu = $("#menu");
+function setMenu(open){
+  burger.setAttribute("aria-expanded", String(open));
+  menu.classList.toggle("open", open);
+  menu.setAttribute("aria-hidden", String(!open));
+  if (!locked) { if (open) lenis?.stop(); else lenis?.start(); }
+}
+burger.addEventListener("click", () => setMenu(burger.getAttribute("aria-expanded") !== "true"));
+addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+addEventListener("resize", () => { if (innerWidth >= 768) setMenu(false); });
+$$('.site-header a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => {
+  const target = $(a.getAttribute("href"));
+  if (!target) return;
+  e.preventDefault();
+  setMenu(false);
+  scrollToTarget(target);
+}));
+
+/* ── LiquidImage: SVG displacement driven by a real spring ────────────── */
+const REST_FREQ = 0.009, REST_SCALE = 1, HOT_FREQ = 0.022;
+const SVG = "http://www.w3.org/2000/svg";
+$$(".liquid").forEach((fig, n) => {
+  const id = "liquid-" + n;
+  const svg = document.createElementNS(SVG, "svg");
+  svg.setAttribute("aria-hidden", "true");
+  svg.innerHTML = `<filter id="${id}"><feTurbulence type="fractalNoise" baseFrequency="${REST_FREQ}" numOctaves="2" result="noise"/>` +
+                  `<feDisplacementMap in="SourceGraphic" in2="noise" scale="${REST_SCALE}"/></filter>`;
+  fig.prepend(svg);
+  const turb = svg.querySelector("feTurbulence"), disp = svg.querySelector("feDisplacementMap");
+  const media = $(".media", fig);
+  media.style.filter = `url(#${id})`;
+  media.addEventListener("error", () => fig.classList.add("errored"), true);
+  media.addEventListener("load", () => fig.classList.remove("errored"));
+
+  const strength = +fig.dataset.strength || 26;
+  // spring { tension: 140, friction: 13, mass: 1 } on a 0→1 progress value
+  const T = 140, F = 13;
+  let p = 0, v = 0, target = 0, running = false, last = 0;
+  function frame(now){
+    let dt = Math.min((now - last) / 1000, 0.064); last = now;
+    for (; dt > 0; dt -= 0.001) { const h = Math.min(dt, 0.001); v += (-T * (p - target) - F * v) * h; p += v * h; }
+    const settled = Math.abs(v) < 0.001 && Math.abs(p - target) < 0.0005;
+    if (settled) { p = target; v = 0; }
+    disp.setAttribute("scale", String(REST_SCALE + (strength - REST_SCALE) * p));
+    turb.setAttribute("baseFrequency", String(Math.max(0.001, REST_FREQ + (HOT_FREQ - REST_FREQ) * p)));
+    if (settled) running = false; else requestAnimationFrame(frame);
+  }
+  function set(active){
+    fig.classList.toggle("active", active);
+    target = active ? 1 : 0;
+    if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
+  }
+  const enabled = () => !RM && innerWidth > 768 && matchMedia("(hover: hover)").matches;
+  fig.addEventListener("mouseenter", () => { if (enabled()) set(true); });
+  fig.addEventListener("mouseleave", () => set(false));
+});
+
+/* ── Services selector ────────────────────────────────────────────────── */
+const SERVICES = [
+  ["تصميم المواقع", "موقع يعرّف الناس بك ويسهّل عليهم الطلب، مصمم ليكون سريعًا وواضحًا وجاهزًا للإعلانات."],
+  ["الخطط التسويقية", "خطة واضحة قبل أي صرف: من هو العميل، أين نجده، وماذا نقول له، وبأي ميزانية."],
+  ["إدارة الإعلانات", "حملات مدفوعة تُدار يوميًا بالأرقام، حتى يصل إعلانك للناس الصح بأقل تكلفة ممكنة."],
+  ["صناعة المحتوى", "محتوى يحكي حكاية البراند بشكل صحيح، ويحافظ على حضوره كل يوم على السوشيال ميديا."],
+  ["ميديا برودكشن", "تصوير وفيديو احترافي للمنتجات والأماكن والحملات، من الفكرة إلى المونتاج النهائي."],
+  ["خدمات AI", "نستخدم أدوات الذكاء الاصطناعي في المحتوى والتصميم والتحليل لننجز أسرع وبجودة أعلى."],
+  ["الإيكوميرس", "متجر إلكتروني وحملات مبيعات مبنية على العائد الإعلاني، من أول زيارة إلى إتمام الشراء."],
+  ["التسويق العقاري", "خطة تسويق كاملة للمشاريع والوحدات، من الإعلان إلى العميل الجاد وحتى إتمام البيع."],
+  ["الأنشطة المحلية و B2B", "تسويق للأماكن والأنشطة المحلية داخل منطقتها، وحملات موجهة للشركات التي تبيع لشركات."],
+];
+const vQuote = $("#voice-quote"), vCite = $("#voice-cite");
+const vBtns = $$(".voice-btn");
+let activeVoice = 0;
+
+function renderQuote(i){
+  const text = SERVICES[i][1];
+  vQuote.setAttribute("aria-label", text);
+  vQuote.innerHTML = text.split(" ").map((w, k) =>
+    `<span class="w" aria-hidden="true" style="--dl:${k * 22}ms">${esc(w)}</span>`).join(" ");
+}
+function setVoice(i){
+  if (i === activeVoice) return;
+  activeVoice = i;
+  vBtns.forEach((b, k) => b.setAttribute("aria-pressed", String(k === i)));
+  renderQuote(i);
+  vCite.textContent = `Reach — ${SERVICES[i][0]}`;
+}
+vBtns.forEach((b, i) => {
+  b.addEventListener("mouseenter", () => setVoice(i));
+  b.addEventListener("focus", () => setVoice(i));
+  b.addEventListener("click", () => setVoice(i));
+});
+vQuote.style.visibility = "hidden";
+new IntersectionObserver((es, o) => {
+  if (!es.some((e) => e.isIntersecting)) return;
+  o.disconnect(); vQuote.style.visibility = ""; renderQuote(activeVoice);
+}, { threshold: 0 }).observe(vQuote);
+</script>
+</body>
+</html>
