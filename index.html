@@ -358,6 +358,22 @@ main{position:relative;width:100%;overflow-x:hidden}
 @media (min-width:640px){.cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1024px){.cert-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .hero-portrait .media{object-fit:contain}
+.cta{margin:0 var(--gutter);padding:2.25rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;--y:24px;--d:600ms}
+.cta-t{font-family:var(--font-display);font-size:1.75rem;line-height:1.3}
+.cta-btn{flex:none;display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1.6rem;border:1px solid var(--accent);border-radius:9999px;font-size:1.0625rem;font-weight:600;line-height:1.2;
+  transition:background 340ms ease-out,color 340ms ease-out,transform 340ms var(--expo)}
+.cta-btn span{color:var(--accent);transition:color 340ms ease-out}
+.cta-btn:hover{background:var(--accent);color:var(--background);transform:translateX(-6px)}
+.cta-btn:hover span{color:var(--background)}
+@media (min-width:768px){.cta{flex-direction:row;align-items:center;justify-content:space-between}.cta-t{font-size:2.25rem}}
+.voice-quote{max-width:38ch;font-size:1.375rem;font-weight:400;line-height:1.7}
+.svc-points{margin-top:1.5rem;display:grid;gap:.6rem}
+.svc-points li{position:relative;padding-inline-start:1.25rem;font-size:1.0625rem;line-height:1.6;color:var(--muted);opacity:0;transform:translateY(12px);animation:word-in 520ms var(--quart) var(--dl) forwards}
+.svc-points li::before{content:"";position:absolute;inset-inline-start:0;top:.65em;width:.4rem;height:.4rem;border-radius:9999px;background:var(--accent)}
+#contact{position:relative;isolation:isolate}
+#ember{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.5;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 70%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 70%,transparent)}
+@media (prefers-reduced-motion:reduce){.svc-points li{opacity:1!important;transform:none!important;animation:none!important}}
 .hero-portrait .liquid{filter:contrast(1.08) saturate(.78) brightness(.9)}
 @media (min-width:640px){
   .hero-portrait{height:76vh}
@@ -495,6 +511,11 @@ main{position:relative;width:100%;overflow-x:hidden}
     </div>
   </section>
 
+  <aside class="cta rv">
+    <p class="cta-t">عندك مشروع وتريد أن تبدأه صح؟</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
+
   <!-- ═══ Education ═══ -->
   <section id="education" class="section">
     <div class="story-grid">
@@ -515,6 +536,11 @@ main{position:relative;width:100%;overflow-x:hidden}
       </div>
     </div>
   </section>
+
+  <aside class="cta rv">
+    <p class="cta-t">تحتاج رأيًا مبنيًا على خبرة ودراسة؟</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
 
   <!-- ═══ Certificates ═══ -->
   <section id="certificates" class="section">
@@ -669,6 +695,11 @@ main{position:relative;width:100%;overflow-x:hidden}
     </ul>
   </section>
 
+  <aside class="cta rv">
+    <p class="cta-t">احجز استشارة تسويقية مع متخصص معتمد.</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
+
   <!-- ═══ Ventures ═══ -->
   <section id="ventures" class="section">
     <div class="head-row">
@@ -731,6 +762,11 @@ main{position:relative;width:100%;overflow-x:hidden}
     </ul>
   </section>
 
+  <aside class="cta rv">
+    <p class="cta-t">تريد أن تعمل مع Reach؟</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
+
   <!-- ═══ Impact ═══ -->
   <section id="impact" class="section">
     <div class="head-row">
@@ -744,6 +780,11 @@ main{position:relative;width:100%;overflow-x:hidden}
       <div class="rv" style="--i:3"><dd dir="ltr">6</dd><dt>أسواق: مصر، قطر، السعودية، الإمارات، ماليزيا، بريطانيا</dt></div>
     </dl>
   </section>
+
+  <aside class="cta rv">
+    <p class="cta-t">تريد أرقامًا مثل هذه لشركتك؟</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
 
   <!-- ═══ Services (interactive) ═══ -->
   <section id="services" class="section">
@@ -768,13 +809,14 @@ main{position:relative;width:100%;overflow-x:hidden}
       <div class="voice-panel">
         <div class="voice-feature">
           <blockquote>
-            <p class="voice-quote" id="voice-quote">موقع يعرّف الناس بك ويسهّل عليهم الطلب، مصمم ليكون سريعًا وواضحًا وجاهزًا للإعلانات.</p>
+            <p class="voice-quote" id="voice-quote"></p>
+            <ul class="svc-points" id="svc-points"></ul>
             <footer class="label label-18" id="voice-cite">Reach — تصميم المواقع</footer>
           </blockquote>
           <div class="voice-portrait rv">
-            <figure class="liquid" role="img" aria-label="ميديا برودكشن" data-strength="22">
+            <figure class="liquid" role="img" aria-label="خدمات Reach" data-strength="22">
               <div class="ph"></div>
-              <img class="media" alt="" aria-hidden="true" loading="lazy" decoding="async" src="assets/production.jpg">
+              <img class="media" id="voice-img" alt="" aria-hidden="true" loading="lazy" decoding="async" src="assets/services/web.jpg">
               <div class="veil" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div>
               <figcaption>Reach</figcaption>
               <div class="vig" aria-hidden="true"></div>
@@ -784,6 +826,11 @@ main{position:relative;width:100%;overflow-x:hidden}
       </div>
     </div>
   </section>
+
+  <aside class="cta rv">
+    <p class="cta-t">أي خدمة تحتاجها؟ لنتكلم عنها.</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
 
   <!-- ═══ Real estate ═══ -->
   <section id="realestate" class="section">
@@ -806,10 +853,16 @@ main{position:relative;width:100%;overflow-x:hidden}
     </div>
   </section>
 
+  <aside class="cta rv">
+    <p class="cta-t">عندك وحدة للبيع أو مشروع عقاري؟</p>
+    <a class="cta-btn" href="https://wa.me/201207312268" target="_blank" rel="noreferrer noopener">راسلني على واتساب <span aria-hidden="true">↖</span></a>
+  </aside>
+
 </main>
 
 <!-- ═══ Contact / Footer ═══ -->
 <footer id="contact">
+  <canvas id="ember" aria-hidden="true"></canvas>
   <p class="eyebrow">تواصل معي</p>
   <h2 class="display contact-h lines" style="--d:950ms">استشارة تسويقية أو تعاون بين شركتين؟</h2>
   <p class="contact-p rv">راسلني مباشرة على واتساب للاستشارات التسويقية، أو للتعاون في التسويق بين شركتك وشركتي.</p>
@@ -1009,32 +1062,52 @@ $$(".liquid").forEach((fig, n) => {
 
 /* ── Services selector ────────────────────────────────────────────────── */
 const SERVICES = [
-  ["تصميم المواقع", "موقع يعرّف الناس بك ويسهّل عليهم الطلب، مصمم ليكون سريعًا وواضحًا وجاهزًا للإعلانات."],
-  ["الخطط التسويقية", "خطة واضحة قبل أي صرف: من هو العميل، أين نجده، وماذا نقول له، وبأي ميزانية."],
-  ["إدارة الإعلانات", "حملات مدفوعة تُدار يوميًا بالأرقام، حتى يصل إعلانك للناس الصح بأقل تكلفة ممكنة."],
-  ["صناعة المحتوى", "محتوى يحكي حكاية البراند بشكل صحيح، ويحافظ على حضوره كل يوم على السوشيال ميديا."],
-  ["ميديا برودكشن", "تصوير وفيديو احترافي للمنتجات والأماكن والحملات، من الفكرة إلى المونتاج النهائي."],
-  ["خدمات AI", "نستخدم أدوات الذكاء الاصطناعي في المحتوى والتصميم والتحليل لننجز أسرع وبجودة أعلى."],
-  ["الإيكوميرس", "متجر إلكتروني وحملات مبيعات مبنية على العائد الإعلاني، من أول زيارة إلى إتمام الشراء."],
-  ["التسويق العقاري", "خطة تسويق كاملة للمشاريع والوحدات، من الإعلان إلى العميل الجاد وحتى إتمام البيع."],
-  ["الأنشطة المحلية و B2B", "تسويق للأماكن والأنشطة المحلية داخل منطقتها، وحملات موجهة للشركات التي تبيع لشركات."],
+  { n: "تصميم المواقع", img: "assets/services/web.jpg",
+    d: "موقع يعرّف الناس بك ويسهّل عليهم الطلب. نصمّمه ونبرمجه ليكون سريعًا وواضحًا على الموبايل قبل الكمبيوتر، وجاهزًا لاستقبال زوار الإعلانات وتحويلهم إلى عملاء.",
+    p: ["مواقع شركات وصفحات هبوط للحملات", "تصميم متجاوب وسرعة تحميل عالية", "ربط بالواتساب ونماذج الطلب وأدوات التتبع"] },
+  { n: "الخطط التسويقية", img: "assets/services/plans.jpg",
+    d: "قبل أي صرف نضع خطة واضحة: من هو العميل، أين نجده، ماذا نقول له، وبأي ميزانية. الخطة تحدد الهدف والأرقام المتوقعة حتى يكون كل جنيه محسوبًا.",
+    p: ["دراسة السوق والمنافسين والجمهور", "تحديد القنوات والرسائل والميزانية", "أهداف شهرية واضحة يمكن قياسها"] },
+  { n: "إدارة الإعلانات", img: "assets/services/ads.jpg",
+    d: "حملات مدفوعة تُدار يوميًا بالأرقام على المنصات المناسبة لنشاطك. نختبر الإعلانات والجمهور باستمرار حتى يصل إعلانك للناس الصح بأقل تكلفة ممكنة.",
+    p: ["حملات مبيعات ورسائل وعملاء محتملين", "اختبار مستمر للإعلانات والجمهور", "تقارير دورية بالنتائج والعائد الإعلاني"] },
+  { n: "صناعة المحتوى", img: "assets/services/content.jpg",
+    d: "محتوى يحكي حكاية البراند بشكل صحيح ويحافظ على حضوره كل يوم. نكتب ونصمّم ونجدول المنشورات بحيث تخدم هدفًا تسويقيًا واضحًا، لا مجرد نشر.",
+    p: ["خطة محتوى شهرية للسوشيال ميديا", "كتابة وتصميم المنشورات والإعلانات", "هوية بصرية متناسقة في كل التفاصيل"] },
+  { n: "ميديا برودكشن", img: "assets/production.jpg",
+    d: "تصوير وفيديو احترافي للمنتجات والأماكن والحملات، من الفكرة والسكريبت إلى التصوير والمونتاج النهائي الجاهز للنشر والإعلانات.",
+    p: ["تصوير منتجات وأماكن وفعاليات", "فيديوهات إعلانية وريلز", "مونتاج وموشن جرافيك"] },
+  { n: "خدمات AI", img: "assets/services/ai.jpg",
+    d: "نستخدم أدوات الذكاء الاصطناعي في المحتوى والتصميم والتحليل لننجز أسرع وبجودة أعلى، ونساعد شركتك على إدخالها في شغلها اليومي.",
+    p: ["صور وفيديوهات مولّدة بالذكاء الاصطناعي", "أتمتة الردود والمهام المتكررة", "تحليل بيانات الحملات والعملاء"] },
+  { n: "الإيكوميرس", img: "assets/services/ecommerce.jpg",
+    d: "متجر إلكتروني وحملات مبيعات مبنية على العائد الإعلاني. نهتم بالرحلة كلها: من أول زيارة للمتجر إلى إتمام الشراء وتكرار الطلب.",
+    p: ["بناء وتجهيز المتجر الإلكتروني", "حملات مبيعات وإعادة استهداف", "تحسين معدل التحويل ومتوسط الطلب"] },
+  { n: "التسويق العقاري", img: "assets/services/realestate.jpg",
+    d: "خطة تسويق كاملة للمشاريع والوحدات العقارية. نصل إلى العميل الجاد ونتابع معه حتى إتمام البيع، مع شركات التطوير وأصحاب الوحدات.",
+    p: ["تسويق مشاريع المطورين بنظام العمولة", "تصوير الوحدات وإعلانات موجهة", "متابعة العملاء حتى التعاقد"] },
+  { n: "الأنشطة المحلية و B2B", img: "assets/services/local.jpg",
+    d: "تسويق للأماكن والأنشطة المحلية داخل منطقتها حتى يعرفها جيرانها أولًا، وحملات موجهة للشركات التي تبيع لشركات أخرى.",
+    p: ["إعلانات محلية حسب المنطقة", "الظهور على الخرائط ونتائج البحث", "حملات B2B لصنّاع القرار"] },
 ];
-const vQuote = $("#voice-quote"), vCite = $("#voice-cite");
+const vQuote = $("#voice-quote"), vCite = $("#voice-cite"), vImg = $("#voice-img"), vPts = $("#svc-points");
 const vBtns = $$(".voice-btn");
 let activeVoice = 0;
 
 function renderQuote(i){
-  const text = SERVICES[i][1];
+  const text = SERVICES[i].d;
   vQuote.setAttribute("aria-label", text);
   vQuote.innerHTML = text.split(" ").map((w, k) =>
-    `<span class="w" aria-hidden="true" style="--dl:${k * 22}ms">${esc(w)}</span>`).join(" ");
+    `<span class="w" aria-hidden="true" style="--dl:${k * 14}ms">${esc(w)}</span>`).join(" ");
+  vPts.innerHTML = SERVICES[i].p.map((t, k) => `<li style="--dl:${420 + k * 90}ms">${esc(t)}</li>`).join("");
 }
 function setVoice(i){
   if (i === activeVoice) return;
   activeVoice = i;
   vBtns.forEach((b, k) => b.setAttribute("aria-pressed", String(k === i)));
   renderQuote(i);
-  vCite.textContent = `Reach — ${SERVICES[i][0]}`;
+  vCite.textContent = `Reach — ${SERVICES[i].n}`;
+  vImg.src = SERVICES[i].img;
 }
 vBtns.forEach((b, i) => {
   b.addEventListener("mouseenter", () => setVoice(i));
@@ -1045,7 +1118,200 @@ vQuote.style.visibility = "hidden";
 new IntersectionObserver((es, o) => {
   if (!es.some((e) => e.isIntersecting)) return;
   o.disconnect(); vQuote.style.visibility = ""; renderQuote(activeVoice);
+  SERVICES.slice(1).forEach((s) => { new Image().src = s.img; });
 }, { threshold: 0 }).observe(vQuote);
+
+/* ── GetLayers · Custom Cursors · "Dot & Ring" ────────────────────────── */
+(function(){
+  const mq = matchMedia("(hover: hover) and (pointer: fine)");
+  let stop = null;
+  function mount(){
+    const COLOR = "#ff3b1d", FOLLOW = 0.14, RING = 36, DOT = 6, GROW = 1.9;
+    const ring = document.createElement("div"), dot = document.createElement("div");
+    const base = "position:fixed;left:0;top:0;pointer-events:none;will-change:transform;border-radius:50%;z-index:90;opacity:0;";
+    ring.style.cssText = base + `box-sizing:border-box;border:1.5px solid ${COLOR};background:transparent;width:${RING}px;height:${RING}px;`;
+    dot.style.cssText = base + `width:${DOT}px;height:${DOT}px;background:${COLOR};`;
+    ring.setAttribute("aria-hidden", "true"); dot.setAttribute("aria-hidden", "true");
+    document.body.append(ring, dot);
+    let x = 0, y = 0, rx = 0, ry = 0, s = 1, over = false, seen = false, raf = 0;
+    const move = (e) => {
+      x = e.clientX; y = e.clientY;
+      if (!seen) { seen = true; rx = x; ry = y; ring.style.opacity = dot.style.opacity = "1"; }
+      over = !!document.elementFromPoint(x, y)?.closest("a, button, input");
+    };
+    const leave = () => { over = false; };
+    const frame = () => {
+      rx += (x - rx) * FOLLOW; ry += (y - ry) * FOLLOW;
+      s += ((over ? GROW : 1) - s) * 0.22;
+      dot.style.transform = `translate(${x - DOT / 2}px,${y - DOT / 2}px)`;
+      ring.style.transform = `translate(${rx - RING / 2}px,${ry - RING / 2}px) scale(${s})`;
+      raf = requestAnimationFrame(frame);
+    };
+    addEventListener("pointermove", move, { passive: true });
+    document.documentElement.addEventListener("pointerleave", leave);
+    raf = requestAnimationFrame(frame);
+    return () => { cancelAnimationFrame(raf); removeEventListener("pointermove", move);
+      document.documentElement.removeEventListener("pointerleave", leave); ring.remove(); dot.remove(); };
+  }
+  const sync = () => { if (mq.matches && !RM) { stop ??= mount(); } else if (stop) { stop(); stop = null; } };
+  sync(); mq.addEventListener("change", sync);
+})();
+
+/* ── GetLayers · Shader Backgrounds · "Ember Glow" (linear field + glow + grain) ── */
+(function(){
+  const canvas = $("#ember"); if (!canvas) return;
+  const gl = canvas.getContext("webgl2", { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, preserveDrawingBuffer: true });
+  if (!gl) { canvas.remove(); return; }
+  const VS = `#version 300 es
+in vec2 aPos;
+void main() { gl_Position = vec4(aPos, 0.0, 1.0); }`;
+  const FS = `#version 300 es
+precision highp float;
+out vec4 fragColor;
+#define TWO_PI 6.28318530718
+#define MAX_STOPS 8
+uniform vec2  u_res;
+uniform float u_time;
+uniform float u_angle;
+uniform vec2  u_center;
+uniform float u_warp;
+uniform float u_scale;
+uniform int   u_octaves;
+uniform float u_contrast;
+uniform float u_seed;
+uniform int   u_stopCount;
+uniform vec3  u_stopCol[MAX_STOPS];
+uniform float u_stopPos[MAX_STOPS];
+uniform float u_grain;
+uniform float u_grainsize;
+uniform float u_grainSeed;
+uniform float u_lightAmount;
+uniform float u_lightSize;
+uniform vec2  u_lightCenter;
+float hash12(vec2 p){
+  vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+  p3 += dot(p3, p3.yzx + 33.33);
+  return fract((p3.x + p3.y) * p3.z);
+}
+vec3 permute(vec3 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
+float snoise(vec2 v){
+  const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+  vec2 i  = floor(v + dot(v, C.yy));
+  vec2 x0 = v - i + dot(i, C.xx);
+  vec2 i1 = (x0.x > x0.y) ? vec2(1.0,0.0) : vec2(0.0,1.0);
+  vec4 x12 = x0.xyxy + C.xxzz; x12.xy -= i1;
+  i = mod(i, 289.0);
+  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+  m = m*m; m = m*m;
+  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+float noise(vec2 p){ return snoise(p) * 0.5 + 0.5; }
+float fbm(vec2 p){
+  float v = 0.0, amp = 0.5;
+  for (int i = 0; i < 6; i++){
+    if (i >= u_octaves) break;
+    v += amp * noise(p);
+    p *= 2.0; amp *= 0.5;
+  }
+  return v;
+}
+vec2 loopOffset(float amp){ return amp * vec2(sin(u_time), 1.0 - cos(u_time)); }
+vec3 sampleGradientStops(float t){
+  if (u_stopCount <= 1) return u_stopCol[0];
+  for (int i = 0; i < MAX_STOPS - 1; i++){
+    if (i + 1 >= u_stopCount) break;
+    float p0 = u_stopPos[i];
+    float p1 = u_stopPos[i+1];
+    if (t <= p1 || i + 2 >= u_stopCount){
+      float u = clamp((t - p0) / max(p1 - p0, 1e-4), 0.0, 1.0);
+      u = smoothstep(0.0, 1.0, u);
+      return mix(u_stopCol[i], u_stopCol[i+1], u);
+    }
+  }
+  return u_stopCol[u_stopCount - 1];
+}
+vec3 fieldColorGenerate(vec2 uv){
+  float aspect = u_res.x / u_res.y;
+  vec2 p = uv; p.x *= aspect;
+  vec2 c = u_center; c.x *= aspect;
+  vec2 nst = uv; nst.x *= aspect;
+  nst *= u_scale; nst += u_seed;
+  vec2 q = vec2(fbm(nst + loopOffset(0.1)), fbm(nst + vec2(5.2,1.3) - loopOffset(0.1)));
+  float fbmMean = 0.5 * (1.0 - pow(0.5, float(u_octaves)));
+  vec2 warpOff = (q - fbmMean) * u_warp;
+  vec2 pp = p + warpOff;
+  float f = dot(pp - c, vec2(cos(u_angle), sin(u_angle))) + 0.5;
+  f = clamp((f - 0.5) * u_contrast + 0.5, 0.0, 1.0);
+  return sampleGradientStops(f);
+}
+vec3 applyLight(vec2 uv, vec3 col){
+  float aspect = u_res.x / u_res.y;
+  vec2 d = (uv - u_lightCenter) * vec2(aspect, 1.0);
+  float dist = length(d);
+  float glow = pow(1.0 - smoothstep(0.0, mix(0.12,0.95,u_lightSize), dist), 1.5);
+  return col + col*glow*u_lightAmount*2.0 + glow*u_lightAmount*0.25;
+}
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_res;
+  vec3 col = fieldColorGenerate(uv);
+  col = applyLight(uv, col);
+  float gr = hash12(floor(gl_FragCoord.xy / max(u_grainsize,0.5)) + u_grainSeed
+                    + mod(floor(u_time*24.0), floor(TWO_PI*24.0)) * 137.0) - 0.5;
+  col += gr * u_grain;
+  col += (hash12(gl_FragCoord.xy) + hash12(gl_FragCoord.xy + 41.7) - 1.0) / 255.0;
+  fragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
+}`;
+  const sh = (t, src) => { const s = gl.createShader(t); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+  const prog = gl.createProgram();
+  gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { canvas.remove(); return; }
+  gl.useProgram(prog);
+  const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = (n) => gl.getUniformLocation(prog, n);
+  const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255);
+  const stops = [["#08080a", 0], ["#0d0809", 0.25], ["#2a0d08", 0.5], ["#7a1c0c", 0.75], ["#ff3b1d", 1]];
+  const cols = [], pos = [];
+  for (let i = 0; i < 8; i++) { const s = stops[Math.min(i, stops.length - 1)]; cols.push(...hex(s[0])); pos.push(s[1]); }
+  gl.uniform3fv(U("u_stopCol"), new Float32Array(cols)); gl.uniform1fv(U("u_stopPos"), new Float32Array(pos));
+  gl.uniform1i(U("u_stopCount"), stops.length);
+  gl.uniform1f(U("u_angle"), 3.8397); gl.uniform2f(U("u_center"), 0.5, 0.5);
+  gl.uniform1f(U("u_warp"), 0.3); gl.uniform1f(U("u_scale"), 1.3); gl.uniform1i(U("u_octaves"), 1);
+  gl.uniform1f(U("u_contrast"), 1.1); gl.uniform1f(U("u_seed"), 0);
+  gl.uniform1f(U("u_grain"), 0.1); gl.uniform1f(U("u_grainsize"), 1); gl.uniform1f(U("u_grainSeed"), 0);
+  gl.uniform1f(U("u_lightAmount"), 0.55); gl.uniform1f(U("u_lightSize"), 0.8); gl.uniform2f(U("u_lightCenter"), 0.5, 0.12);
+  const uRes = U("u_res"), uTime = U("u_time");
+  function resize(){
+    const r = canvas.getBoundingClientRect(); const dpr = Math.min(devicePixelRatio || 1, 2);
+    let w = r.width * dpr, h = r.height * dpr; const k = Math.min(1, 1600 / Math.max(w, h, 1));
+    w = Math.max(1, Math.round(w * k)); h = Math.max(1, Math.round(h * k));
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+    gl.viewport(0, 0, w, h); gl.uniform2f(uRes, w, h);
+  }
+  let t = 0, last = 0, visible = false, raf = 0;
+  const draw = () => { gl.uniform1f(uTime, t); gl.drawArrays(gl.TRIANGLES, 0, 3); };
+  function frame(now){
+    t = (t + Math.min((now - last) / 1000, 0.1)) % (Math.PI * 2); last = now;
+    draw(); raf = visible ? requestAnimationFrame(frame) : 0;
+  }
+  new ResizeObserver(() => { resize(); draw(); }).observe(canvas);
+  new IntersectionObserver((es) => {
+    visible = es.some((e) => e.isIntersecting);
+    if (visible && !raf && !RM) { last = performance.now(); raf = requestAnimationFrame(frame); }
+  }, { threshold: 0 }).observe(canvas);
+  resize(); draw();
+})();
 </script>
 </body>
 </html>
