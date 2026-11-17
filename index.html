@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lalezar&family=Onest:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" fetchpriority="high" href="assets/hero-real.png">
+<link rel="preload" as="image" fetchpriority="high" href="assets/hero-v2.png">
 
 <style>
 /* ── Reset ─────────────────────────────────────────────────────────────── */
@@ -451,7 +451,7 @@ main{position:relative;width:100%;overflow-x:hidden}
     <div class="hero-portrait">
       <figure class="liquid bare" role="img" aria-label="صورة محمد حسني" data-strength="30">
         <img class="media" alt="" aria-hidden="true" fetchpriority="high" decoding="sync"
-             style="object-position:center bottom" src="assets/hero-real.png">
+             style="object-position:center bottom" src="assets/hero-v2.png">
       </figure>
     </div>
 
@@ -1055,7 +1055,7 @@ $$(".liquid").forEach((fig, n) => {
     target = active ? 1 : 0;
     if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
   }
-  const enabled = () => !RM && innerWidth > 768 && matchMedia("(hover: hover)").matches;
+  const enabled = () => !fig.classList.contains("bare") && !RM && innerWidth > 768 && matchMedia("(hover: hover)").matches;
   fig.addEventListener("mouseenter", () => { if (enabled()) set(true); });
   fig.addEventListener("mouseleave", () => set(false));
 });
