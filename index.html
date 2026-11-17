@@ -391,6 +391,18 @@ main{position:relative;width:100%;overflow-x:hidden}
   .stats>div:not(:nth-child(4n+1)){border-right:1px solid var(--line);padding-right:2rem}
   .footer-bar>:nth-child(3){text-align:left}
 }
+.marquee{direction:ltr}
+.marquee-track{animation-name:marquee}
+@media (hover:none),(max-width:768px){
+  body{text-rendering:auto}
+  .liquid:not(.bare) .veil{display:none}
+  .liquid:not(.bare) .media{filter:grayscale(.85) brightness(.85);transition:filter 600ms ease-out,transform 900ms cubic-bezier(0.16,1,0.3,1)}
+  .liquid:not(.bare).active .media{filter:none;transform:scale(1.05)}
+  .hero-portrait .liquid{filter:none}
+  .hero-portrait .media{-webkit-mask-image:none;mask-image:none}
+  .liquid .face{display:none}
+  #contact{background:radial-gradient(120% 55% at 50% 100%,rgba(255,59,29,.2),transparent 70%)}
+}
 @media (prefers-reduced-motion:reduce){.hero-name .nw{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 
@@ -920,7 +932,7 @@ if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
 function unlock(){ locked = false; root.classList.remove("locked"); lenis?.start(); }
 
-import("lenis").then(({ default: Lenis }) => {
+(matchMedia("(hover: hover) and (pointer: fine)").matches ? import("lenis") : Promise.reject()).then(({ default: Lenis }) => {
   lenis = new Lenis({ smoothWheel: true });
   window.lenis = lenis;
   if (locked) lenis.stop();
@@ -1071,8 +1083,7 @@ $$(".liquid").forEach((fig, n) => {
   fig.addEventListener("mouseleave", () => { if (canHover()) { fig.classList.remove("active"); go(0); } });
   // touch: a short ripple, then settle (colour stays on while the image is centred)
   let tm = 0;
-  fig._pulse = () => { if (RM) return; clearTimeout(tm); go(1); tm = setTimeout(() => go(0), 420); };
-  fig.addEventListener("touchstart", () => { if (!canHover()) fig._pulse(); }, { passive: true });
+  fig._pulse = () => { if (RM || !canHover()) return; clearTimeout(tm); go(1); tm = setTimeout(() => go(0), 420); };
   touchFigs.push(fig);
 });
 // Phones and tablets have no hover: play each image's effect as it reaches the middle of the screen.
@@ -1182,9 +1193,33 @@ new IntersectionObserver((es, o) => {
   sync(); mq.addEventListener("change", sync);
 })();
 
+/* ── Touch pointer: the same dot & ring, following the finger ─────────── */
+(function(){
+  if (RM || matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  const COLOR = "#ff3b1d", RING = 44, DOT = 8;
+  const base = "position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;z-index:90;opacity:0;transition:opacity 260ms ease-out;";
+  const ring = document.createElement("div"), dot = document.createElement("div");
+  ring.style.cssText = base + `box-sizing:border-box;border:1.5px solid ${COLOR};width:${RING}px;height:${RING}px;`;
+  dot.style.cssText = base + `width:${DOT}px;height:${DOT}px;background:${COLOR};`;
+  ring.setAttribute("aria-hidden", "true"); dot.setAttribute("aria-hidden", "true");
+  document.body.append(ring, dot);
+  const at = (e) => {
+    const t = e.touches[0]; if (!t) return;
+    ring.style.transform = `translate3d(${t.clientX - RING / 2}px,${t.clientY - RING / 2}px,0)`;
+    dot.style.transform = `translate3d(${t.clientX - DOT / 2}px,${t.clientY - DOT / 2}px,0)`;
+    ring.style.opacity = dot.style.opacity = "1";
+  };
+  const off = () => { ring.style.opacity = dot.style.opacity = "0"; };
+  addEventListener("touchstart", at, { passive: true });
+  addEventListener("touchmove", at, { passive: true });
+  addEventListener("touchend", off, { passive: true });
+  addEventListener("touchcancel", off, { passive: true });
+})();
+
 /* ── GetLayers · Shader Backgrounds · "Ember Glow" (linear field + glow + grain) ── */
 (function(){
   const canvas = $("#ember"); if (!canvas) return;
+  if (!canHover()) { canvas.remove(); return; }
   const gl = canvas.getContext("webgl2", { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, preserveDrawingBuffer: true });
   if (!gl) { canvas.remove(); return; }
   const VS = `#version 300 es
