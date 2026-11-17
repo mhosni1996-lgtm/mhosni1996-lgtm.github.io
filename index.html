@@ -339,10 +339,12 @@ main{position:relative;width:100%;overflow-x:hidden}
 .wa-note{margin-top:1rem}
 .social a:hover::before{margin-right:0;margin-left:.75rem}
 @media (max-width:639px){
+  #top{min-height:0;padding-bottom:56vh;padding-bottom:56svh}
   .hero-top{gap:1rem;padding-top:5.5rem}
-  .hero-desc{font-size:.95rem;line-height:1.5;max-width:20rem}
-  .hero-portrait{height:56vh;width:96vw}
-  .hero-name{font-size:15rem;transform:translateY(-22%)}
+  .hero-desc{font-size:.95rem;line-height:1.55;max-width:none}
+  .hero-portrait{height:52vh;height:52svh}
+  .hero-name{font-size:12.5rem;transform:translateY(-4%)}
+  .hero-fade{height:16vh}
 }
 .cert-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;gap:3rem var(--gutter)}
 .cert-grid>li{--y:40px;--d:600ms;--dl:calc(var(--i)*90ms)}
@@ -357,7 +359,10 @@ main{position:relative;width:100%;overflow-x:hidden}
 .cert-row .label{flex:none}
 @media (min-width:640px){.cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1024px){.cert-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.hero-portrait .media{object-fit:contain}
+.hero-portrait{aspect-ratio:836/1140;width:auto!important;max-width:100vw}
+.hero-portrait .media{object-fit:contain;-webkit-mask-image:linear-gradient(to bottom,transparent 25%,#000 29%);mask-image:linear-gradient(to bottom,transparent 25%,#000 29%)}
+.liquid .face{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent 37%);mask-image:linear-gradient(to bottom,#000 30%,transparent 37%)}
 .cta{margin:0 var(--gutter);padding:2.25rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;--y:24px;--d:600ms}
 .cta-t{font-family:var(--font-display);font-size:1.75rem;line-height:1.3}
 .cta-btn{flex:none;display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1.6rem;border:1px solid var(--accent);border-radius:9999px;font-size:1.0625rem;font-weight:600;line-height:1.2;
@@ -451,6 +456,7 @@ main{position:relative;width:100%;overflow-x:hidden}
       <figure class="liquid bare" role="img" aria-label="صورة محمد حسني" data-strength="30">
         <img class="media" alt="" aria-hidden="true" fetchpriority="high" decoding="sync"
              style="object-position:center bottom" src="assets/hero-v2.png">
+        <img class="face" alt="" aria-hidden="true" decoding="sync" src="assets/hero-v2.png">
       </figure>
     </div>
 
@@ -485,7 +491,7 @@ main{position:relative;width:100%;overflow-x:hidden}
       <div>
         <p class="eyebrow">القصة</p>
         <h2 class="display story-h lines" style="--d:900ms">عشر سنوات من التسويق بالأرقام.</h2>
-        <p class="story-p rv">أنا المهندس محمد حسني، صاحب ومدير شركتين: Reach للتسويق الرقمي، و Reach العقارية. بدأت Reach قبل عشر سنوات لتقدّم خدمات التسويق الرقمي كاملة، وبعدها بخمس سنوات أسست Reach العقارية لتسويق الوحدات داخل مصر. عملت على أسواق في مصر وقطر والسعودية والإمارات وماليزيا وبريطانيا، وأدرت إنفاقًا إعلانيًا تجاوز 500 مليون جنيه، وحققنا للشركات مبيعات تخطّت المليار على مدار السنوات.</p>
+        <p class="story-p rv">المهندس محمد حسني، صاحب ومدير شركتين: Reach للتسويق الرقمي، و Reach العقارية. بدأت Reach قبل عشر سنوات لتقدّم خدمات التسويق الرقمي كاملة، وبعدها بخمس سنوات أسست Reach العقارية لتسويق الوحدات داخل مصر. عملت على أسواق في مصر وقطر والسعودية والإمارات وماليزيا وبريطانيا، وأدرت إنفاقًا إعلانيًا تجاوز 500 مليون جنيه، وحققنا للشركات مبيعات تخطّت المليار على مدار السنوات.</p>
       </div>
       <div class="story-right">
         <ul class="principles">
@@ -1054,7 +1060,7 @@ $$(".liquid").forEach((fig, n) => {
     target = active ? 1 : 0;
     if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
   }
-  const enabled = () => !fig.classList.contains("bare") && !RM && innerWidth > 768 && matchMedia("(hover: hover)").matches;
+  const enabled = () => !RM && innerWidth > 768 && matchMedia("(hover: hover)").matches;
   fig.addEventListener("mouseenter", () => { if (enabled()) set(true); });
   fig.addEventListener("mouseleave", () => set(false));
 });
