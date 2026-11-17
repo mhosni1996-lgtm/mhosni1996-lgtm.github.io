@@ -379,6 +379,7 @@ main{position:relative;width:100%;overflow-x:hidden}
 #ember{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.5;pointer-events:none;
   -webkit-mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 70%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 70%,transparent)}
 @media (prefers-reduced-motion:reduce){.svc-points li{opacity:1!important;transform:none!important;animation:none!important}}
+@media (max-width:768px){.ln-in,.hero-name .nw{will-change:auto}.marquee-track b{font-size:2.5rem}}
 .hero-portrait .liquid{filter:contrast(1.08) saturate(.78) brightness(.9)}
 @media (min-width:640px){
   .hero-portrait{height:76vh}
@@ -1029,6 +1030,8 @@ $$('.site-header a[href^="#"]').forEach((a) => a.addEventListener("click", (e) =
 /* ── LiquidImage: SVG displacement driven by a real spring ────────────── */
 const REST_FREQ = 0.009, REST_SCALE = 1, HOT_FREQ = 0.022;
 const SVG = "http://www.w3.org/2000/svg";
+const canHover = () => matchMedia("(hover: hover) and (pointer: fine)").matches && innerWidth > 768;
+const touchFigs = [];
 $$(".liquid").forEach((fig, n) => {
   const id = "liquid-" + n;
   const svg = document.createElementNS(SVG, "svg");
@@ -1038,32 +1041,49 @@ $$(".liquid").forEach((fig, n) => {
   fig.prepend(svg);
   const turb = svg.querySelector("feTurbulence"), disp = svg.querySelector("feDisplacementMap");
   const media = $(".media", fig);
-  media.style.filter = `url(#${id})`;
   media.addEventListener("error", () => fig.classList.add("errored"), true);
   media.addEventListener("load", () => fig.classList.remove("errored"));
 
-  const strength = +fig.dataset.strength || 26;
+  const full = +fig.dataset.strength || 26;
   // spring { tension: 140, friction: 13, mass: 1 } on a 0→1 progress value
   const T = 140, F = 13;
   let p = 0, v = 0, target = 0, running = false, last = 0;
   function frame(now){
+    const strength = canHover() ? full : full * 0.6;
     let dt = Math.min((now - last) / 1000, 0.064); last = now;
     for (; dt > 0; dt -= 0.001) { const h = Math.min(dt, 0.001); v += (-T * (p - target) - F * v) * h; p += v * h; }
     const settled = Math.abs(v) < 0.001 && Math.abs(p - target) < 0.0005;
     if (settled) { p = target; v = 0; }
     disp.setAttribute("scale", String(REST_SCALE + (strength - REST_SCALE) * p));
     turb.setAttribute("baseFrequency", String(Math.max(0.001, REST_FREQ + (HOT_FREQ - REST_FREQ) * p)));
-    if (settled) running = false; else requestAnimationFrame(frame);
+    if (!settled) { requestAnimationFrame(frame); return; }
+    running = false;
+    if (target === 0) media.style.filter = "";   // idle images carry no filter at all — keeps scrolling cheap
   }
-  function set(active){
-    fig.classList.toggle("active", active);
-    target = active ? 1 : 0;
-    if (!running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
+  function go(t){
+    target = t;
+    if (running) return;
+    running = true; last = performance.now();
+    media.style.filter = `url(#${id})`;
+    requestAnimationFrame(frame);
   }
-  const enabled = () => !RM && innerWidth > 768 && matchMedia("(hover: hover)").matches;
-  fig.addEventListener("mouseenter", () => { if (enabled()) set(true); });
-  fig.addEventListener("mouseleave", () => set(false));
+  fig.addEventListener("mouseenter", () => { if (canHover() && !RM) { fig.classList.add("active"); go(1); } });
+  fig.addEventListener("mouseleave", () => { if (canHover()) { fig.classList.remove("active"); go(0); } });
+  // touch: a short ripple, then settle (colour stays on while the image is centred)
+  let tm = 0;
+  fig._pulse = () => { if (RM) return; clearTimeout(tm); go(1); tm = setTimeout(() => go(0), 420); };
+  fig.addEventListener("touchstart", () => { if (!canHover()) fig._pulse(); }, { passive: true });
+  touchFigs.push(fig);
 });
+// Phones and tablets have no hover: play each image's effect as it reaches the middle of the screen.
+const touchIO = new IntersectionObserver((entries) => {
+  if (canHover()) return;
+  for (const e of entries) {
+    e.target.classList.toggle("active", e.isIntersecting);
+    if (e.isIntersecting) e.target._pulse();
+  }
+}, { rootMargin: "-38% 0px -38% 0px", threshold: 0 });
+touchFigs.forEach((f) => touchIO.observe(f));
 
 /* ── Services selector ────────────────────────────────────────────────── */
 const SERVICES = [
@@ -1123,7 +1143,7 @@ vQuote.style.visibility = "hidden";
 new IntersectionObserver((es, o) => {
   if (!es.some((e) => e.isIntersecting)) return;
   o.disconnect(); vQuote.style.visibility = ""; renderQuote(activeVoice);
-  SERVICES.slice(1).forEach((s) => { new Image().src = s.img; });
+  if (innerWidth > 768) SERVICES.slice(1).forEach((s) => { new Image().src = s.img; });
 }, { threshold: 0 }).observe(vQuote);
 
 /* ── GetLayers · Custom Cursors · "Dot & Ring" ────────────────────────── */
@@ -1299,7 +1319,7 @@ void main(){
   const uRes = U("u_res"), uTime = U("u_time");
   function resize(){
     const r = canvas.getBoundingClientRect(); const dpr = Math.min(devicePixelRatio || 1, 2);
-    let w = r.width * dpr, h = r.height * dpr; const k = Math.min(1, 1600 / Math.max(w, h, 1));
+    let w = r.width * dpr, h = r.height * dpr; const k = Math.min(1, (innerWidth > 768 ? 1600 : 720) / Math.max(w, h, 1));
     w = Math.max(1, Math.round(w * k)); h = Math.max(1, Math.round(h * k));
     if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
     gl.viewport(0, 0, w, h); gl.uniform2f(uRes, w, h);
